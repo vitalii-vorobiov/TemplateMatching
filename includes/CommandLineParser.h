@@ -5,8 +5,10 @@
 #ifndef TEMPLATEMATCHING_COMMANDLINEPARSER_H
 #define TEMPLATEMATCHING_COMMANDLINEPARSER_H
 
-namespace templateMatching {
-    class CommandLineParser {
+namespace templateMatching
+{
+    class CommandLineParser
+    {
     public:
         cv::Mat image;
         cv::Mat templateImage;

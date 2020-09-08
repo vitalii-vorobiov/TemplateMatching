@@ -12,7 +12,8 @@
 
 namespace po = boost::program_options;
 
-int templateMatching::CommandLineParser::parseCommandLine(int argc, char **argv) {
+int templateMatching::CommandLineParser::parseCommandLine(int argc, char **argv)
+{
     po::options_description desc("General options");
     desc.add_options()
             ("help,h", "Show help")
@@ -24,24 +25,29 @@ int templateMatching::CommandLineParser::parseCommandLine(int argc, char **argv)
     store(parse_command_line(argc, argv, desc), vm);
     notify(vm);
 
-    if (vm.count("help")) {
+    if (vm.count("help"))
+    {
         std::cout << desc << std::endl;
         return EXIT_SUCCESS;
     }
 
-    if (vm.count("image")) {
+    if (vm.count("image"))
+    {
         std::string image_name = vm["image"].as<std::string>();
         image = cv::imread(cv::samples::findFile(image_name));
-        if (image.empty()) {
+        if (image.empty())
+        {
             std::cout << "Can't read image '" << image_name << std::endl;
             return EXIT_FAILURE;
         }
     }
 
-    if (vm.count("template")) {
+    if (vm.count("template"))
+    {
         std::string template_name = vm["template"].as<std::string>();
         templateImage = cv::imread(cv::samples::findFile(template_name));
-        if (templateImage.empty()) {
+        if (templateImage.empty())
+        {
             std::cout << "Can't read image '" << template_name << std::endl;
             return EXIT_FAILURE;
         }
