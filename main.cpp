@@ -25,6 +25,7 @@ int main(int argc, char** argv)
     cv::cvtColor(commandLineParser.templateImage, greyTemplate, cv::COLOR_BGR2GRAY);
 
     position position{};
+//    SAD - Sum of Absolute Differences
     auto minSAD = INFINITY;
 
     for (int x = 0; x < commandLineParser.image.cols - commandLineParser.templateImage.cols; ++x)
